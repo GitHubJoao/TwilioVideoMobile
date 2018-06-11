@@ -260,9 +260,9 @@ public class ConversationActivity extends AppCompatActivity {
         // Share your camera
         cameraCapturer = new CameraCapturer(this, CameraSource.BACK_CAMERA);
         localVideoTrack = LocalVideoTrack.create(this, true, cameraCapturer);
-        //primaryVideoView.setMirror(true);
-        //localVideoTrack.addRenderer(primaryVideoView);
-        //localVideoView = primaryVideoView;
+        primaryVideoView.setMirror(true);
+        localVideoTrack.addRenderer(primaryVideoView);
+        localVideoView = primaryVideoView;
     }
 
     private void setAccessToken() {
@@ -377,7 +377,7 @@ public class ConversationActivity extends AppCompatActivity {
      * Set primary view as renderer for participant video track
      */
     private void addParticipantVideo(VideoTrack videoTrack) {
-        //moveLocalVideoToThumbnailView();
+        moveLocalVideoToThumbnailView();
         primaryVideoView.setMirror(false);
 		primaryVideoView.setVideoScaleType(com.twilio.video.VideoScaleType.ASPECT_FIT);
         videoTrack.addRenderer(primaryVideoView);
