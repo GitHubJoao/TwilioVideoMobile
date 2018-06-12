@@ -74,7 +74,7 @@ public class ConversationActivity extends AppCompatActivity {
      * Android application UI elements
      */
     private TextView videoStatusTextView;
-    private TextView identityTextView;
+    // private TextView identityTextView;
     private CameraCapturer cameraCapturer;
     private LocalAudioTrack localAudioTrack;
     private LocalVideoTrack localVideoTrack;
@@ -101,7 +101,7 @@ public class ConversationActivity extends AppCompatActivity {
         primaryVideoView = (VideoView) findViewById(R.id.primary_video_view);
         thumbnailVideoView = (VideoView) findViewById(R.id.thumbnail_video_view);
         videoStatusTextView = (TextView) findViewById(R.id.video_status_textview);
-        identityTextView = (TextView) findViewById(R.id.identity_textview);
+        // identityTextView = (TextView) findViewById(R.id.identity_textview);
 
         connectActionFab = (FloatingActionButton) findViewById(R.id.connect_action_fab);
         disconnectActionFab = (FloatingActionButton) findViewById(R.id.disconnect_action_fab);
