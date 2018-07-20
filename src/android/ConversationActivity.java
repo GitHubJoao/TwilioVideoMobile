@@ -260,7 +260,7 @@ public class ConversationActivity extends AppCompatActivity {
         // Share your camera
         cameraCapturer = new CameraCapturer(this, CameraSource.BACK_CAMERA);
         localVideoTrack = LocalVideoTrack.create(this, true, cameraCapturer);
-        primaryVideoView.setMirror(true);
+        primaryVideoView.setMirror(false);
         localVideoTrack.addRenderer(primaryVideoView);
         localVideoView = primaryVideoView;
     }
