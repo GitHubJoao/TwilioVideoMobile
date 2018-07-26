@@ -667,10 +667,10 @@ public class ConversationActivity extends AppCompatActivity {
             @Override
             public void onFocusChange(View v, boolean hasFocus){
                 if (hasFocus){
-                    v.setAlpha(0.99);
+                    v.setAlpha(0.9F);
                     return;
                 }
-                v.setAlpha(0.30);
+                v.setAlpha(0.3F);
             }
         };
     }
