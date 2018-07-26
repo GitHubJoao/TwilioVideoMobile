@@ -80,7 +80,6 @@ public class ConversationActivity extends AppCompatActivity {
     private LocalVideoTrack localVideoTrack;
     private FloatingActionButton connectActionFab;
     private FloatingActionButton disconnectActionFab;
-    private FloatingActionButton switchCameraActionFab;
     private FloatingActionButton localVideoActionFab;
     private FloatingActionButton muteActionFab;
     private FloatingActionButton speakerActionFab;
@@ -105,7 +104,6 @@ public class ConversationActivity extends AppCompatActivity {
 
         connectActionFab = (FloatingActionButton) findViewById(R.id.connect_action_fab);
         disconnectActionFab = (FloatingActionButton) findViewById(R.id.disconnect_action_fab);
-        //switchCameraActionFab = (FloatingActionButton) findViewById(R.id.switch_camera_action_fab);
         localVideoActionFab = (FloatingActionButton) findViewById(R.id.local_video_action_fab);
         muteActionFab = (FloatingActionButton) findViewById(R.id.mute_action_fab);
         speakerActionFab = (FloatingActionButton) findViewById(R.id.speaker_action_fab);
@@ -309,17 +307,18 @@ public class ConversationActivity extends AppCompatActivity {
         //connectActionFab.show();
         //connectActionFab.setOnClickListener(connectActionClickListener());
 
-        // switchCameraActionFab.show();
-        // switchCameraActionFab.setOnClickListener(switchCameraClickListener());
-
         localVideoActionFab.show();
         localVideoActionFab.setOnClickListener(localVideoClickListener());
+        localVideoActionFab.setOnFocusChangeListener(focusChangeListener(localVideoActionFab));
 
         muteActionFab.show();
         muteActionFab.setOnClickListener(muteClickListener());
+        muteActionFab.setOnFocusChangeListener(focusChangeListener(muteActionFab));
 
         speakerActionFab.show();
         speakerActionFab.setOnClickListener(speakerClickListener());
+        speakerActionFab.setOnFocusChangeListener(focusChangeListener(speakerActionFab));
+
     }
 
     /*
@@ -603,23 +602,6 @@ public class ConversationActivity extends AppCompatActivity {
         };
     }
 
-    private View.OnClickListener switchCameraClickListener() {
-        return new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (cameraCapturer != null) {
-                    CameraSource cameraSource = cameraCapturer.getCameraSource();
-                    cameraCapturer.switchCamera();
-                    if (thumbnailVideoView.getVisibility() == View.VISIBLE) {
-                        thumbnailVideoView.setMirror(cameraSource == CameraSource.BACK_CAMERA);
-                    } else {
-                        primaryVideoView.setMirror(cameraSource == CameraSource.BACK_CAMERA);
-                    }
-                }
-            }
-        };
-    }
-
     private View.OnClickListener localVideoClickListener() {
         return new View.OnClickListener() {
             @Override
@@ -633,13 +615,10 @@ public class ConversationActivity extends AppCompatActivity {
                     int icon;
                     if (enable) {
                         icon = R.drawable.ic_videocam_green_24px;
-                        //switchCameraActionFab.show();
                     } else {
-                        icon = R.drawable.ic_videocam_off_red_24px;
-                        //switchCameraActionFab.hide();
+                        icon = R.drawable.ic_videocam_off_red_24px;                    
                     }
-                    localVideoActionFab.setImageDrawable(
-                            ContextCompat.getDrawable(ConversationActivity.this, icon));
+                    localVideoActionFab.setImageDrawable(ContextCompat.getDrawable(ConversationActivity.this, icon));
                 }
             }
         };
@@ -681,6 +660,18 @@ public class ConversationActivity extends AppCompatActivity {
                 }
             }
         };
+    }
+
+    private View.OnFocusChangeListener focusChangeListener(View v){
+        @Override
+        public void onFocusChange(View v, boolean hasFocus){
+            if (hasFocus){
+                v.setAlpha(0.99);
+                return;
+            }
+            v.setAlpha(0.30);
+        }
+
     }
 
     private void retrieveAccessTokenfromServer() {
