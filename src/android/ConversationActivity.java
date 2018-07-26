@@ -663,15 +663,16 @@ public class ConversationActivity extends AppCompatActivity {
     }
 
     private View.OnFocusChangeListener focusChangeListener(View v){
-        @Override
-        public void onFocusChange(View v, boolean hasFocus){
-            if (hasFocus){
-                v.setAlpha(0.99);
-                return;
+        return new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus){
+                if (hasFocus){
+                    v.setAlpha(0.99);
+                    return;
+                }
+                v.setAlpha(0.30);
             }
-            v.setAlpha(0.30);
         }
-
     }
 
     private void retrieveAccessTokenfromServer() {
