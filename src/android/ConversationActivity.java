@@ -672,7 +672,7 @@ public class ConversationActivity extends AppCompatActivity {
                 }
                 v.setAlpha(0.30);
             }
-        }
+        };
     }
 
     private void retrieveAccessTokenfromServer() {
