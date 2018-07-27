@@ -307,14 +307,20 @@ public class ConversationActivity extends AppCompatActivity {
         //connectActionFab.show();
         //connectActionFab.setOnClickListener(connectActionClickListener());
 
+        disconnectActionFab.setAlpha(0.3F);
+        disconnectActionFab.setOnFocusChangeListener(focusChangeListener(disconnectActionFab));
+
+        localVideoActionFab.setAlpha(0.3F);
         localVideoActionFab.show();
         localVideoActionFab.setOnClickListener(localVideoClickListener());
         localVideoActionFab.setOnFocusChangeListener(focusChangeListener(localVideoActionFab));
 
+        muteActionFab.setAlpha(0.3F);
         muteActionFab.show();
         muteActionFab.setOnClickListener(muteClickListener());
         muteActionFab.setOnFocusChangeListener(focusChangeListener(muteActionFab));
 
+        speakerActionFab.setAlpha(0.3F);
         speakerActionFab.show();
         speakerActionFab.setOnClickListener(speakerClickListener());
         speakerActionFab.setOnFocusChangeListener(focusChangeListener(speakerActionFab));
