@@ -1,10 +1,30 @@
 {
-    "version": "0.2.0",
-    "name": "cordova.plugin.twilio.video",
-    "cordova_name": "Twilio video room plugin",
-    "license": "Apache 2.0",
+  "version": "0.2.0",
+  "name": "cordova.plugin.twilio.video",
+  "cordova_name": "Twilio video room plugin",
+  "license": "Apache 2.0",
+  "platforms": [
+    "android"
+  ],
+  "engines": [],
+  "description": "**Using the cordova plugin**",
+  "cordova": {
+    "id": "cordova.plugin.twilio.video",
     "platforms": [
-        "android"
-    ],
-    "engines": []
+      "android"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ImAliveAndThatIsNice/TwilioVideoMobile.git"
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android"
+  ],
+  "author": "Bool",
+  "bugs": {
+    "url": "https://github.com/ImAliveAndThatIsNice/TwilioVideoMobile/issues"
+  },
+  "homepage": "https://github.com/ImAliveAndThatIsNice/TwilioVideoMobile#readme"
 }
