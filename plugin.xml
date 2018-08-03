@@ -40,7 +40,6 @@
     <!-- </platform> -->
     <platform name="android">
         <hook type="after_plugin_install" src="hooks/after_plugin_install/hook-add-r-import.js" />
-        <hook type="before_platform_add" src="hooks/before_platform_add/hook_before_platform_add.js" />
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="VideoConversationPlugin">
                 <param name="android-package" value="cordova.plugin.twilio.video.VideoConversationPlugin" />
