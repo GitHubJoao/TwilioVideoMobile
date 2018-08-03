@@ -6,7 +6,7 @@
   "platforms": [
     "android"
   ],
-  "engines": [],
+  "engines": {},
   "description": "**Using the cordova plugin**",
   "cordova": {
     "id": "cordova.plugin.twilio.video",
