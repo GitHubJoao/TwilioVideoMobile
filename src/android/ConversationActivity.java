@@ -82,6 +82,7 @@ public class ConversationActivity extends AppCompatActivity {
     private FloatingActionButton disconnectActionFab;
     private FloatingActionButton localVideoActionFab;
     private FloatingActionButton muteActionFab;
+    private FloatingActionButton takePictureActionFab;
     private FloatingActionButton speakerActionFab;
     private android.support.v7.app.AlertDialog alertDialog;
     private AudioManager audioManager;
@@ -106,6 +107,7 @@ public class ConversationActivity extends AppCompatActivity {
         disconnectActionFab = (FloatingActionButton) findViewById(R.id.disconnect_action_fab);
         localVideoActionFab = (FloatingActionButton) findViewById(R.id.local_video_action_fab);
         muteActionFab = (FloatingActionButton) findViewById(R.id.mute_action_fab);
+        takePictureActionFab = (FloatingActionButton) findViewById(R.id.take_picture_action_fab);
         speakerActionFab = (FloatingActionButton) findViewById(R.id.speaker_action_fab);
 
         /*
@@ -319,6 +321,11 @@ public class ConversationActivity extends AppCompatActivity {
         muteActionFab.show();
         muteActionFab.setOnClickListener(muteClickListener());
         muteActionFab.setOnFocusChangeListener(focusChangeListener(muteActionFab));
+
+        takePictureActionFab.setAlpha(0.3F);
+        takePictureActionFab.show();
+        takePictureActionFab.setOnClickListener(takePictureClickListener());
+        takePictureActionFab.setOnFocusChangeListener(focusChangeListener(takePictureActionFab));
 
         speakerActionFab.setAlpha(0.3F);
         speakerActionFab.show();
@@ -664,6 +671,16 @@ public class ConversationActivity extends AppCompatActivity {
                     speakerActionFab.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(),
                             R.drawable.ic_volume_down_green_24px));
                 }
+            }
+        };
+    }
+
+    private View.OnClickListener takePictureClickListener(){
+        return new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // ToDo : take picture and send over data track methods.
+
             }
         };
     }

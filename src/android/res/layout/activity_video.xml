@@ -69,6 +69,15 @@
             app:fabSize="mini"
             android:layout_margin="@dimen/fab_margin"
             android:src="@drawable/ic_volume_down_green_24px" />
+        
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/take_picture_action_fab"
+            app:backgroundTint="@color/colorBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/fab_margin"
+            app:fabSize="mini"
+            android:src="@drawable/ic_photo_camera_green_24px" />
 
     </LinearLayout>
 
