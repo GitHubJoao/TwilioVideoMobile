@@ -87,7 +87,8 @@ public class ConversationActivity extends AppCompatActivity {
     private android.support.v7.app.AlertDialog alertDialog;
     private AudioManager audioManager;
     private String participantIdentity;
-
+    private CameraCapturer.PictureListener photographer;
+    
     private int previousAudioMode;
     private boolean previousMicrophoneMute;
     private VideoRenderer localVideoView;
@@ -114,6 +115,20 @@ public class ConversationActivity extends AppCompatActivity {
          * Enable changing the volume using the up/down keys during a conversation
          */
         setVolumeControlStream(AudioManager.STREAM_VOICE_CALL);
+        
+        photographer = new CameraCapturer.PictureListener() {
+            @Override
+            public void onShutter() {
+
+            }
+            @Override
+            public void onPictureTaken(byte[] bytes) {
+            //ToDo: Method to send the bytes over the DataTrack
+            Toast.makeText(AdvancedCameraCapturerActivity.this,
+                                "Click!",
+                                Toast.LENGTH_LONG).show();
+            }
+        };
 
         /*
          * Needed for setting/abandoning audio focus during call
@@ -679,7 +694,7 @@ public class ConversationActivity extends AppCompatActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // ToDo : take picture and send over data track methods.
+                takePicture();
 
             }
         };
@@ -740,4 +755,9 @@ public class ConversationActivity extends AppCompatActivity {
             audioManager.setMicrophoneMute(previousMicrophoneMute);
         }
     }
+
+    private void takePicture() {
+        cameraCapturer.takePicture(photographer);
+    }
+
 }
