@@ -124,7 +124,7 @@ public class ConversationActivity extends AppCompatActivity {
             @Override
             public void onPictureTaken(byte[] bytes) {
             //ToDo: Method to send the bytes over the DataTrack
-            Toast.makeText(this, "Click!",Toast.LENGTH_LONG).show();
+            Toast.makeText(View.getContext(), "Click!",Toast.LENGTH_LONG).show();
             }
         };
 
